@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>My Resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <style>
+    /* General styles for light and dark themes */
+    body.dark-mode {
+      background-color: black;
+      color: white;
+    }
+    body.light-mode {
+      background-color: white;
+      color: black;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+    body.light-mode .theme-toggle {
+      color: black;
+    }
+
+    /* Style for navigation links */
+    a {
+      color: inherit; /* Make links inherit color from parent */
+      text-decoration: none; /* Remove underline from links */
+    }
+
+    a:hover {
+      text-decoration: underline; 
+    }
+
+    /* Unique animations for progress bars */
+    @keyframes fillCalisthenics {
+      from { width: 0%; }
+      to { width: 15%; }
+    }
+
+    @keyframes fillGym {
+      from { width: 0%; }
+      to { width: 20%; }
+    }
+
+    @keyframes fillCardio {
+      from { width: 0%; }
+      to { width: 40%; }
+    }
+
+    @keyframes fillStretchability {
+      from { width: 0%; }
+      to { width: 65%; }
+    }
+
+    /* Progress bar styles */
+    .progress-bar {
+      height: 20px;
+      transition: width 0.5s ease-in-out;
+    }
+
+    /* Darker gradient effect for each progress bar */
+    .calisthenics {
+      background: linear-gradient(90deg, #d57d9a, #f4c2c2);
+      animation: fillCalisthenics 2s ease-in-out forwards;
+    }
+
+    .gym {
+      background: linear-gradient(90deg, #f5a623, #d49a12);
+      animation: fillGym 2.5s ease-in-out forwards;
+    }
+
+    .cardio {
+      background: linear-gradient(90deg, #6a91d8, #b1c4f1);
+      animation: fillCardio 3s ease-in-out forwards;
+    }
+
+    .stretchability {
+      background: linear-gradient(90deg, #91d3a4, #6bbf82);
+      animation: fillStretchability 3.5s ease-in-out forwards;
+    }
+
+    /* Add a smooth transition when hovering */
+    .progress-bar:hover {
+      filter: brightness(1.2);
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    /* Making sure the progress bars start with zero width */
+    .progress-bar {
+      width: 0%;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <div class="p-3">
+    <a href="index.html"><i class="bi bi-house-fill" style="font-size: 1.5rem;"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="academics.html">Academics</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="skill.html">Skills</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="project.html">Project</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="feedback.html">Feedback</a>
+    <i id="theme-toggle" class="bi bi-moon-fill theme-toggle"></i>
+  </div>
+
+  <h1 style="text-align: center">SKILLS</h1>
+
+  <div class="container mt-5">
+    <ul class="list-group">
+      <li class="list-group-item bg-dark text-white">Calisthenics</li>
+      <div class="progress">
+        <div class="progress-bar calisthenics" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">15%</div>
+      </div>
+
+      <li class="list-group-item bg-dark text-white mt-3">Gym</li>
+      <div class="progress">
+        <div class="progress-bar gym" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+      </div>
+
+      <li class="list-group-item bg-dark text-white mt-3">Cardio</li>
+      <div class="progress">
+        <div class="progress-bar cardio" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40%</div>
+      </div>
+
+      <li class="list-group-item bg-dark text-white mt-3">Stretchability</li>
+      <div class="progress">
+        <div class="progress-bar stretchability" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+      </div>
+    </ul>
+  </div>
+
+  <script>
+    // Theme Toggle Function
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check if a theme is stored in localStorage
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.remove('dark-mode', 'light-mode');
+      body.classList.add(currentTheme);
+      themeToggleBtn.classList.toggle('bi-moon-fill', currentTheme === 'dark-mode');
+      themeToggleBtn.classList.toggle('bi-sun-fill', currentTheme === 'light-mode');
+    }
+
+    // Toggle the theme on click
+    themeToggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      
+      // Change icon and store theme in localStorage
+      if (body.classList.contains('light-mode')) {
+        themeToggleBtn.classList.replace('bi-moon-fill', 'bi-sun-fill');
+        localStorage.setItem('theme', 'light-mode');
+      } else {
+        themeToggleBtn.classList.replace('bi-sun-fill', 'bi-moon-fill');
+        localStorage.setItem('theme', 'dark-mode');
+      }
+    });
+
+    // Trigger animations when page loads
+    window.onload = () => {
+      document.querySelectorAll('.progress-bar').forEach((bar) => {
+        bar.style.width = `${bar.getAttribute('aria-valuenow')}%`;
+      });
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* General Style */
+body {
+   font-family: 'Helvetica', sans-serif;
+   background-color: #111; /* Deep black background */
+   color: #fff; /* White text for contrast */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   margin: 0;
+}
+
+/* Clock Container */
+.clock-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #222; /* Dark grey container background */
+   border-radius: 15px; /* Rounded edges for a premium feel */
+   padding: 30px;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Subtle shadow for depth */
+}
+
+/* Clock Style */
+.clock {
+   text-align: center;
+}
+
+/* Time Display */
+.time {
+   font-size: 6em;
+   letter-spacing: 3px;
+   margin-bottom: 10px;
+   color: #f0f0f0; /* Slightly lighter white for contrast */
+}
+
+/* Date Display */
+.date {
+   font-size: 1.5em;
+   color: #bbb; /* Softer grey for date text */
+}
+
+/* Hover Effect on Container */
+.clock-container:hover {
+   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9); /* Enhanced shadow on hover */
+   transition: box-shadow 0.3s ease-in-out;
+}

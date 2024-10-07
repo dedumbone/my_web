@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <title>My Resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <style>
+    body.dark-mode {
+      background-color: black;
+      color: white;
+    }
+    body.light-mode {
+      background-color: white;
+      color: black;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: white;
+    }
+    body.light-mode .theme-toggle {
+      color: black;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center align content */
+      justify-content: center; /* Center vertically */
+      height: 100vh; /* Full viewport height */
+      padding: 10px; /* Adjusted padding */
+      overflow: hidden; /* Prevent overflow */
+    }
+    h1, h2 {
+      margin: 5px; /* Reduced margin */
+      font-size: 1.5rem; /* Further reduced font size */
+    }
+    p {
+      font-size: 14px; /* Reduced font size */
+      text-align: center; /* Center text */
+    }
+    img {
+      width: 15%; /* Further reduced image size */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 50%; /* Keep circular shape */
+      object-fit: cover; /* Cover the space */
+      margin-bottom: 10px; /* Added margin below image */
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <div class="p-3">
+    <a href="prac.html"><i class="bi bi-house-fill" style="font-size: 1.5rem;"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="academics.html" style="color: inherit;">Academics</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="skill.html" style="color: inherit;">Skills</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="project.html" style="color: inherit;">Project</a> &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="feedback.html" style="color: inherit;">Feedback</a>
+    <i id="theme-toggle" class="bi bi-moon-fill theme-toggle"></i>
+  </div>
+
+  <div class="container">
+    <h1>RESUME</h1>
+    <h2>About Me</h2>
+    <img src="tigor.jpg" alt="Image of me">
+    
+    <div>
+      <p style="font-size: 16px; font-weight: bold;">Mathingchui Shangh</p>
+      <p>I'm 19 years old, currently pursuing a degree in Information Technology (IT) in my second year.</p>
+    </div>
+  </div>
+
+  <script>
+    // Theme Toggle Function
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check if a theme is stored in localStorage
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+      body.classList.remove('dark-mode', 'light-mode');
+      body.classList.add(currentTheme);
+      themeToggleBtn.classList.toggle('bi-moon-fill', currentTheme === 'dark-mode');
+      themeToggleBtn.classList.toggle('bi-sun-fill', currentTheme === 'light-mode');
+    }
+
+    // Toggle the theme on click
+    themeToggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      body.classList.toggle('light-mode');
+      
+      // Change icon and store theme in localStorage
+      if (body.classList.contains('light-mode')) {
+        themeToggleBtn.classList.replace('bi-moon-fill', 'bi-sun-fill');
+        localStorage.setItem('theme', 'light-mode');
+      } else {
+        themeToggleBtn.classList.replace('bi-sun-fill', 'bi-moon-fill');
+        localStorage.setItem('theme', 'dark-mode');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* Style for the count label */
+#count {
+   display: block;
+   text-align: center;
+   font-size: 10em;
+   font-family: 'Helvetica', sans-serif;
+   color: #333; /* Dark grey instead of pure black */
+   margin: 20px 0; /* Add some space around the label */
+}
+
+/* Container for the buttons */
+#btncontainer {
+   text-align: center;
+   margin-top: 20px; /* Add some space from the count */
+}
+
+/* Common styles for all buttons */
+.buttons {
+   padding: 15px 30px;
+   font-size: 1.5em;
+   color: #ffffff; /* White text for a premium feel */
+   background-color: #333; /* Dark grey for a sophisticated look */
+   border: 2px solid #333; /* Border same as background to look clean */
+   border-radius: 8px; /* Slightly larger border radius for smooth edges */
+   transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+   margin: 0 10px; /* Add spacing between buttons */
+   cursor: pointer; /* Indicate that buttons are clickable */
+}
+
+/* Hover effect for buttons */
+.buttons:hover {
+   background-color: #ffffff; /* Invert colors on hover */
+   color: #333; /* Text changes to dark grey */
+   border-color: #333; /* Maintain dark grey border */
+}
